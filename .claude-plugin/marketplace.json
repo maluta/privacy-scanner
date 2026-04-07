@@ -2,6 +2,11 @@
   "name": "privacy-scanner",
   "version": "1.0.0",
   "description": "WiFi surveillance device detector for rental accommodations — detects hidden cameras from Hikvision, Dahua, Wyze, and 50+ manufacturers using 7-phase network scanning",
+  "owner": {
+    "name": "Tiago Maluta",
+    "email": "maluta@hey.com",
+    "url": "https://github.com/maluta"
+  },
   "author": "Tiago Maluta",
   "license": "Apache-2.0",
   "repository": "https://github.com/maluta/privacy-scanner",

@@ -1,71 +1,62 @@
 # Privacy Scanner — WiFi Surveillance Device Detector
 
-A Claude Code skill that scans WiFi networks to detect hidden cameras and surveillance devices in rental accommodations (Airbnb, Booking, VRBO, etc.).
+Scans WiFi networks to detect hidden cameras and surveillance devices in rental accommodations (Airbnb, Booking, VRBO, etc.).
 
 **Cross-platform**: Linux, macOS, and Windows.
 
 ## Quick Start
 
-```bash
-# Cross-platform (Python — recommended)
-sudo python3 scripts/scan.py           # Linux / macOS
-python scripts\scan.py                  # Windows (Admin PowerShell)
+### Prerequisites
 
-# Linux-only (Bash)
+- **nmap** (mandatory): `brew install nmap` (macOS) / `sudo apt install nmap` (Debian) / [nmap.org](https://nmap.org/download) (Windows)
+- **Python 3.10+**
+- **uv** (recommended): `brew install uv` or see [docs.astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+### Run with uv (recommended)
+
+```bash
+uv sync
+sudo uv run python scripts/scan.py
+```
+
+### Run with pip
+
+```bash
+pip install -r requirements.txt
+sudo python3 scripts/scan.py
+```
+
+### Linux-only (Bash, no Python deps needed)
+
+```bash
 sudo bash scripts/scan.sh
 ```
-
-## Prerequisites
-
-### All platforms: nmap (mandatory) + Python 3.8+
-
-| Platform | nmap | Python | Extras |
-|----------|------|--------|--------|
-| **Linux (Arch)** | `sudo pacman -S nmap` | `sudo pacman -S python` | `arp-scan avahi` (recommended) |
-| **Linux (Debian)** | `sudo apt install nmap` | `sudo apt install python3` | `arp-scan avahi-utils` |
-| **macOS** | `brew install nmap` | `brew install python` | `arp-scan` (recommended) |
-| **Windows** | [nmap.org/download](https://nmap.org/download) (includes Npcap) | [python.org](https://python.org) | — |
-
-### Python packages (optional, improve detection)
-
-```bash
-pip install python-nmap zeroconf requests
-# or
-pip install -r requirements.txt
-```
-
-Without these packages, the scanner still works using nmap subprocess calls. With them, you get better mDNS discovery and HTTP inspection.
 
 ## Usage
 
 ```bash
-# Full auto-detect (Portuguese report by default)
-sudo python3 scripts/scan.py
+# Full scan (Portuguese report by default)
+sudo uv run python scripts/scan.py
 
-# Report in English or Spanish
-sudo python3 scripts/scan.py --lang en
-sudo python3 scripts/scan.py --lang es
+# English or Spanish report
+sudo uv run python scripts/scan.py --lang en
+sudo uv run python scripts/scan.py --lang es
 
 # Quick mode (skip service discovery & deep inspection)
-sudo python3 scripts/scan.py --quick
+sudo uv run python scripts/scan.py --quick
 
 # Specify WiFi interface or subnet
-sudo python3 scripts/scan.py --interface wlan0
-sudo python3 scripts/scan.py --subnet 192.168.1.0/24
-
-# Custom output directory
-sudo python3 scripts/scan.py --output-dir /tmp/my-scan
-
-# Skip HTML report
-sudo python3 scripts/scan.py --no-html
+sudo uv run python scripts/scan.py --interface wlan0
+sudo uv run python scripts/scan.py --subnet 192.168.1.0/24
 
 # Show help
-python3 scripts/scan.py --help
+uv run python scripts/scan.py --help
 ```
 
 ### Windows (Admin PowerShell)
 
 ```powershell
+uv sync
 python scripts\scan.py
 python scripts\scan.py --quick --lang en
 ```

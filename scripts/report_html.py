@@ -287,6 +287,11 @@ I18N = {
         "en": "For guest privacy protection",
         "es": "Para la protección de la privacidad del huésped",
     },
+    "footer_credit": {
+        "pt": "Idealizado por Tiago Maluta e produtizado com ajuda de IA",
+        "en": "Designed by Tiago Maluta and built with the help of AI",
+        "es": "Ideado por Tiago Maluta y producido con ayuda de IA",
+    },
 
     # -- Risk distribution chart
     "distribution_title": {"pt": "Distribuição de Risco", "en": "Risk Distribution", "es": "Distribución de Riesgo"},
@@ -1487,6 +1492,7 @@ body {{
   <!-- Footer -->
   <div class="footer">
     <span data-i18n="footer_text">{esc(I18N["footer_text"][lang])}</span> &middot; {esc(now)} &middot; <span data-i18n="footer_purpose">{esc(I18N["footer_purpose"][lang])}</span>
+    <br><span data-i18n="footer_credit" style="opacity:0.6">{esc(I18N["footer_credit"][lang])}</span>
   </div>
 
 </div>

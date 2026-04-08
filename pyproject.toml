@@ -1,0 +1,32 @@
+[project]
+name = "privacy-scanner"
+version = "1.0.0"
+description = "WiFi surveillance device detector for rental accommodations"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [
+    { name = "Tiago Maluta", email = "maluta@hey.com" },
+]
+keywords = [
+    "security",
+    "privacy",
+    "surveillance",
+    "cameras",
+    "wifi",
+    "nmap",
+    "network-scanner",
+    "airbnb",
+    "rental",
+    "hidden-cameras",
+]
+
+dependencies = [
+    "python-nmap>=0.7.1",
+    "zeroconf>=0.131.0",
+    "requests>=2.31.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/maluta/privacy-scanner"
+Repository = "https://github.com/maluta/privacy-scanner"
